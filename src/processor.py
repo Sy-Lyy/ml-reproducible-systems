@@ -25,6 +25,6 @@ class DataProcessor:
     def variance(self) -> float:
         m = self.mean()
         return sum((x - m) ** 2 for x in self.data) / len(self.data)
-  if __name__ == "__main__":
+if __name__ == "__main__":
     p = DataProcessor([1, 2, 3])
     help(p.mean)
