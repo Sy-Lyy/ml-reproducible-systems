@@ -120,7 +120,8 @@ test_smoke.cpython-310-pytest-8.4.2.pyc
 
 
 ## 🤖 3. Use of GenAI (if applicable)
-- **What I Asked It To Do**:
+- **What I Asked It To Do**: How to install and run pytest on Windows,How to debug with breakpoints in VS Code and inspect variables, Why pytest showed 3 tests,
+OOP basics.
   - ## GenAI Usage Log
 2025-09-14: Asked how to install pytest and run it properly (python -m pytest -q).
 2025-09-14: Asked why pytest showed 3 tests.
