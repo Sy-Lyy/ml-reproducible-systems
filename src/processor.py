@@ -51,3 +51,5 @@ class DataProcessor:
 if __name__ == "__main__":
     p = DataProcessor([1, 2, 3])
     help(p.mean)
+
+
