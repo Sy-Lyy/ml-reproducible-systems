@@ -88,12 +88,11 @@ PS C:\Users\수영\portfolio-25-26-Sy-Lyy> python -m pytest -q
 3 passed in 0.06s
 PS C:\Users\수영\portfolio-25-26-Sy-Lyy>
 
-- **How to Run** (if applicable)
-
-[o] Installation steps (if needed) : pip install pytest
-[o] Run command(s) : cd C:\Users\수영\portfolio-25-26-Sy-Lyy
+ **How to Run** (if applicable)
+  - [o] Installation steps (if needed) : pip install pytest
+  - [o] Run command(s) : cd C:\Users\수영\portfolio-25-26-Sy-Lyy
                     python -m pytest -q
-[o] Expected output : 3 passed in 0.06s
+  - [o] Expected output : 3 passed in 0.06s
 
 ## 🔍 2. My Exploration
 - **What I Investigated Further**:
