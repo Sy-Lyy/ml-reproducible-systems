@@ -25,18 +25,13 @@ class DataProcessor:
         """
         self.data = data
     
+# replace mean() with a broken version in processor.py
     def mean(self) -> float:
-        """
-        Returns the arithmetic mean.
-        Returns:
-            float: Mean of the dataset.
-        Raises:
-            ValueError: If dataset is empty.
-        """
+        """Broken: wrong formula to simulate a bug for practice."""
         if not self.data:
             raise ValueError("Data is empty.")
-        return sum(self.data) / len(self.data)
-
+        return sum(self.data) * len(self.data)  # should be division
+        
     def variance(self) -> float:
         """Returns the population variance.
 
