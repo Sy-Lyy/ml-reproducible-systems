@@ -57,6 +57,7 @@ PS C:\Users\수영\portfolio-25-26-Sy-Lyy>
   <img width="1843" height="957" alt="image" src="https://github.com/user-attachments/assets/ca5bdbc3-1e1e-4038-b937-8ce2831a4fe8" />
 
 -**Debugging result**
+
 PS C:\Users\수영\Desktop\Tilburg Univ\study\RM\portfolio-25-26-Sy-Lyy>  & 'c:\Users\수영\AppData\Local\Microsoft\WindowsApps\python3.10.exe' 'c:\Users\수영\.vscode\extensions\ms-python.debugpy-2025.10.0-win32-x64\bundled\libs\debugpy\launcher' '50924' '--' 'C:\Users\수영\Desktop\Tilburg Univ\[stuessor.py](http://stuessor.py/)'
 loaded: [1, 2, 3]
 Help on method mean in module **main**:
