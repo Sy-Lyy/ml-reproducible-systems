@@ -123,10 +123,10 @@ test_smoke.cpython-310-pytest-8.4.2.pyc
 - **What I Asked It To Do**: How to install and run pytest on Windows,How to debug with breakpoints in VS Code and inspect variables, Why pytest showed 3 tests,
 OOP basics.
   - ## GenAI Usage Log
-2025-09-14: Asked how to install pytest and run it properly (python -m pytest -q).
-2025-09-14: Asked why pytest showed 3 tests.
-2025-09-14: Asked how to use pytest --collect-only to see discovered tests.
-2025-09-14: Asked about OOP basics.
+- 2025-09-14: Asked how to install pytest and run it properly (python -m pytest -q).
+- 2025-09-14: Asked why pytest showed 3 tests.
+- 2025-09-14: Asked how to use pytest --collect-only to see discovered tests.
+- 2025-09-14: Asked about OOP basics.
 
 - **What I Got and Did With It**:
 - Installed pytest successfully and executed tests from the project root.
