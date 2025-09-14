@@ -38,7 +38,7 @@ class DataProcessor:
         return sum(self.data) / len(self.data)
 
     def variance(self) -> float:
-         """Returns the population variance.
+        """Returns the population variance.
 
         Returns:
             float: Variance of the dataset.
