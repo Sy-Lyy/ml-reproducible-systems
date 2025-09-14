@@ -1,9 +1,9 @@
-📅 Week 3: [Testing, debugging, and OOP]
-🛠️ 1. What I Built
-Summary: I implemented a DataProcessor class in processor.py with mean() and variance() methods. I wrote unit tests using pytest, confirmed test failures after intentionally inserting a bug, and used the VS Code debugger to inspect sum(self.data) and len(self.data). I also handled edge cases such as empty input data and verified correctness with additional tests.
-Key Tools Used: Python, pytest, VS Code Debugger
-
-Artifact Location: https://github.com/tcsai/portfolio-25-26-Sy-Lyy.git
+# 📅 Week 3: [Testing, debugging, and OOP]
+## 🛠️ 1. What I Built
+- **Summary**:  I implemented a DataProcessor class in processor.py with mean() and variance() methods. I wrote unit tests using pytest, confirmed test failures after intentionally inserting a bug, and used the VS Code debugger to inspect sum(self.data) and len(self.data). I also handled edge cases such as empty input data and verified correctness with additional tests.
+- **Key Tools Used**: Python, pytest, VS Code Debugger
+- **Artifact Location**:
+  - https://github.com/tcsai/portfolio-25-26-Sy-Lyy.git
 
 - Mean Error Execution Result
 PS C:\Users\수영\Desktop\Tilburg Univ\study\RM\portfolio-25-26-Sy-Lyy>
@@ -86,19 +86,20 @@ PS C:\Users\수영\portfolio-25-26-Sy-Lyy> python -m pytest -q
 3 passed in 0.06s
 PS C:\Users\수영\portfolio-25-26-Sy-Lyy>
 
-How to Run (if applicable)
+- **How to Run** (if applicable)
 
 [o] Installation steps (if needed) : pip install pytest
 [o] Run command(s) : cd C:\Users\수영\portfolio-25-26-Sy-Lyy
                     python -m pytest -q
 [o] Expected output : 3 passed in 0.06s
-🔍 2. My Exploration
-What I Investigated Further:
+
+## 🔍 2. My Exploration
+- **What I Investigated Further**:
 - Why pytest always reported “3 passed” instead of “2 passed”.
 - How to check which tests pytest discovers using --collect-only.
-
 Summary of the answer: pytest collects all test_*.py files and their test_ functions. My repo has 2 tests in test_processor.py and 1 in test_smoke.py, so the total is 3. Running pytest --collect-only confirmed this.
-Link to Evidence
+
+- **Link to Evidence**
 
 PS C:\Users\수영\Desktop\Tilburg Univ\study\RM\portfolio-25-26-Sy-Lyy> python -m pytest -q --collect-only
 
@@ -117,28 +118,24 @@ test_processor.cpython-310-pytest-8.4.2.pyc
 test_smoke.cpython-310-pytest-8.4.2.pyc
 
 
-🤖 3. Use of GenAI (if applicable)
-What I Asked It To Do:
-- How to install and run pytest on Windows.
-- How to debug with breakpoints in VS Code and inspect variables.
-- Why pytest showed 3 tests.
-- OOP basics (abstraction, encapsulation, inheritance, polymorphism
-GenAI Usage Log
+## 🤖 3. Use of GenAI (if applicable)
+- **What I Asked It To Do**:
+  - ## GenAI Usage Log
 2025-09-14: Asked how to install pytest and run it properly (python -m pytest -q).
-2025-09-14: Asked why 3 tests passed instead of 2.
+2025-09-14: Asked why pytest showed 3 tests.
 2025-09-14: Asked how to use pytest --collect-only to see discovered tests.
 2025-09-14: Asked about OOP basics.
 
-What I Got and Did With It:
-- Learned to always check out the main branch before running code.
+- **What I Got and Did With It**:
 - Installed pytest successfully and executed tests from the project root.
 - Discovered the reason for 3 tests passing: presence of test_smoke.py.
 - Used pytest --collect-only to confirm test discovery.
 - Reviewed OOP fundamentals to understand the class-based structure of the project.
 
-Risks or Misuses You Noticed: There were no issues.
+- **Risks or Misuses You Noticed**: There were no issues.
 
-💬 4. Reflection
-How did this week’s work support reproducibility or deployment? : Writing unit tests with pytest ensured reproducibility by making it easy to rerun the same checks after any code changes. Debugging with breakpoints improved code reliability.
-What was most confusing or interesting? : I found it most interesting to use breakpoints in VS Code to directly inspect values and confirm the bug in the mean() function. 
+## 💬 4. Reflection
+- **How did this week’s work support reproducibility or deployment?** :  Writing unit tests with pytest ensured reproducibility by making it easy to rerun the same checks after any code changes. Debugging with breakpoints improved code reliability.
+- **What was most confusing or interesting?** : I found it most interesting to use breakpoints in VS Code to directly inspect values and confirm the bug in the mean() function.
+- **If someone else looked at your repo, what would help them use this part of the project?** : I believe others would find it easier to use my repo if I added clear instructions on how to install pytest, run the tests.
 If someone else looked at your repo, what would help them use this part of the project? : I believe others would find it easier to use my repo if I added clear instructions on how to install pytest and run the tests.
