@@ -1041,7 +1041,7 @@ PS C:\Users\수영\Desktop\Tilburg Univ\study\RM\portfolio-25-26-Sy-Lyy> docker 
 Running experiment...
 Numpy version: 1.24.0
 Computation: 6
-</details>
+</details>````
 
  **How to Run** (if applicable)
   - [o] Installation steps (if needed) : pip install pytest
