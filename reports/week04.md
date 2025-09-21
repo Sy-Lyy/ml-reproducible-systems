@@ -1,4 +1,4 @@
-# 📅 Week 3: Testing, Debugging, and OOP
+# 📅 Week 4: Environments and Docker
 
 ## 🛠️ 1. What I Built
 - **Summary**: This week I set up isolated Python environments on Windows PowerShell using three approaches—venv, Conda, and Poetry—and I captured each environment with the appropriate manifest files: requirements.txt for venv, environment.yml for Conda, and pyproject.toml plus poetry.lock for Poetry. I then wrote a Dockerfile, built an image, ran it locally, and finally pushed a tagged image to Docker Hub. Along the way I worked through Windows-specific hurdles such as PowerShell execution policy. Using venv, I created .sandboxA and installed numpy==1.24.0, then created .sandboxB and installed numpy==1.26.0, proving that conflicting versions can coexist safely on the same machine. With Conda, I exported an environment file and learned why it can look very different from short examples online; I also resolved the classic “prefix already exists” error by stripping the prefix: line and recreating under a new name, or alternatively updating the existing env in place. With Poetry, I installed dependencies directly from pyproject.toml and kept the virtual environment inside the project to avoid path confusion. With Docker, I built an image from a minimal Dockerfile that installs from requirements.txt, then ran it locally and pushed it to Docker Hub after fixing a daemon/context issue on Windows.
@@ -6,6 +6,7 @@
 - **Artifact Location**:
   - https://github.com/tcsai/portfolio-25-26-Sy-Lyy.git
   - Open the toggle at the bottom to view the full execution logs
+
 **How to Run** (if applicable)
 - venv:
 python -m venv .venv
