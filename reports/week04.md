@@ -9,22 +9,33 @@
 
 **How to Run** (if applicable)
 - venv:
+
 python -m venv .venv
+
 Set-ExecutionPolicy -Scope Process RemoteSigned
+
 .\.venv\Scripts\Activate.ps1
+
 pip install -r requirements.txt
 
 - conda:
+
 conda env create -n envA_clone -f environment_clean.yml
+
 conda activate envA_clone
 
 - poetry:
+
 python -m poetry env use "C:\Users\수영\AppData\Local\Programs\Python\Python311\python.exe"
+
 python -m poetry install
+
 python -m poetry run python src\processor.py
 
 - Docker:
+
 docker build -t reproducible-proj .
+
 docker run --rm reproducible-proj
 
 ## 🔍 2. My Exploration
