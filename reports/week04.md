@@ -41,16 +41,18 @@ docker run --rm reproducible-proj
 ## 🔍 2. My Exploration
 - **What I Investigated Further**:
 - Why source …/activate fails on Windows → PowerShell doesn’t use source; it uses .\<env>\Scripts\Activate.ps1. If scripts are blocked, fix with Set-ExecutionPolicy -Scope Process RemoteSigned.
+
 - Why environment.yml differs from the short example → --from-history lists only packages you explicitly installed with Conda (and versions you pinned). A full export includes build pins, a possible pip: section, and a machine-specific prefix, so it’s longer.
+
 - CondaValueError: prefix already exists — cause and workarounds → The YAML points to an existing env path (prefix: or name:). Avoid by (1) creating with a new name, (2) updating the existing env (conda env update … --prune), or (3) removing and recreating the env.
+
 - Poetry install/run issues → Bypass PATH problems by using python -m poetry, force Python 3.11 with poetry env use <python311>, and keep the venv inside the project (poetry config virtualenvs.in-project true) to prevent path confusion.
 
 - **Link to Evidence**
 Since it’s too long, so please check the full execution logs at the bottom.
 
 ## 🤖 3. Use of GenAI (if applicable)
-- **What I Asked It To Do**: How to install and run pytest on Windows,How to debug with breakpoints in VS Code and inspect variables, Why pytest showed 3 tests,
-OOP basics.
+- **What I Asked It To Do**
   - ## GenAI Usage Log
 - 2025-09-21: The exact commands for venv/Conda/Poetry on Windows and how to troubleshoot errors.
 - 2025-09-21: The reasons an environment.yml can differ. 
