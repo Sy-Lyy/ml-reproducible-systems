@@ -1,65 +1,66 @@
 # 📅 Week 3: Testing, Debugging, and OOP
 
 ## 🛠️ 1. What I Built
-- **Summary**: I implemented a DataProcessor class in processor.py with mean() and variance() methods. I wrote unit tests using pytest, confirmed tests.
-- **Key Tools Used**: Python, pytest, VS Code Debugger
+- **Summary**: This week I set up isolated Python environments on Windows PowerShell using three approaches—venv, Conda, and Poetry—and I captured each environment with the appropriate manifest files: requirements.txt for venv, environment.yml for Conda, and pyproject.toml plus poetry.lock for Poetry. I then wrote a Dockerfile, built an image, ran it locally, and finally pushed a tagged image to Docker Hub. Along the way I worked through Windows-specific hurdles such as PowerShell execution policy. Using venv, I created .sandboxA and installed numpy==1.24.0, then created .sandboxB and installed numpy==1.26.0, proving that conflicting versions can coexist safely on the same machine. With Conda, I exported an environment file and learned why it can look very different from short examples online; I also resolved the classic “prefix already exists” error by stripping the prefix: line and recreating under a new name, or alternatively updating the existing env in place. With Poetry, I installed dependencies directly from pyproject.toml and kept the virtual environment inside the project to avoid path confusion. With Docker, I built an image from a minimal Dockerfile that installs from requirements.txt, then ran it locally and pushed it to Docker Hub after fixing a daemon/context issue on Windows.
+- **Key Tools Used**: PowerShell, Python venv, Conda, Poetry, pyproject.toml, Docker Desktop, VS Code, Git
 - **Artifact Location**:
   - https://github.com/tcsai/portfolio-25-26-Sy-Lyy.git
+  - Open the toggle at the bottom to view the full execution logs
 **How to Run** (if applicable)
-  - [o] Installation steps (if needed) : pip install pytest
-  - [o] Run command(s) : cd C:\Users\수영\portfolio-25-26-Sy-Lyy
-                    python -m pytest -q
-  - [o] Expected output : 3 passed in 0.06s
+- venv:
+python -m venv .venv
+Set-ExecutionPolicy -Scope Process RemoteSigned
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+
+- conda:
+conda env create -n envA_clone -f environment_clean.yml
+conda activate envA_clone
+
+- poetry:
+python -m poetry env use "C:\Users\수영\AppData\Local\Programs\Python\Python311\python.exe"
+python -m poetry install
+python -m poetry run python src\processor.py
+
+- Docker:
+docker build -t reproducible-proj .
+docker run --rm reproducible-proj
 
 ## 🔍 2. My Exploration
 - **What I Investigated Further**:
-- Why pytest always reported “3 passed” instead of “2 passed”.
-- How to check which tests pytest discovers using --collect-only.
-Summary of the answer: pytest collects all test_*.py files and their test_ functions. My repo has 2 tests in test_processor.py and 1 in test_smoke.py, so the total is 3. Running pytest --collect-only confirmed this.
+- Why source …/activate fails on Windows → PowerShell doesn’t use source; it uses .\<env>\Scripts\Activate.ps1. If scripts are blocked, fix with Set-ExecutionPolicy -Scope Process RemoteSigned.
+- Why environment.yml differs from the short example → --from-history lists only packages you explicitly installed with Conda (and versions you pinned). A full export includes build pins, a possible pip: section, and a machine-specific prefix, so it’s longer.
+- CondaValueError: prefix already exists — cause and workarounds → The YAML points to an existing env path (prefix: or name:). Avoid by (1) creating with a new name, (2) updating the existing env (conda env update … --prune), or (3) removing and recreating the env.
+- Poetry install/run issues → Bypass PATH problems by using python -m poetry, force Python 3.11 with poetry env use <python311>, and keep the venv inside the project (poetry config virtualenvs.in-project true) to prevent path confusion.
 
 - **Link to Evidence**
-
-PS C:\Users\수영\Desktop\Tilburg Univ\study\RM\portfolio-25-26-Sy-Lyy> python -m pytest -q --collect-only
-
-tests/test_processor.py::test_mean_basic
-tests/test_processor.py::test_variance_basic
-tests/test_smoke.py::test_import
-
-PS C:\Users\수영\Desktop\Tilburg Univ\study\RM\portfolio-25-26-Sy-Lyy> tree /F tests
-폴더 PATH의 목록입니다.
-│  README.md
-│  test_processor.py
-│  test_smoke.py
-│
-└─__pycache__
-test_processor.cpython-310-pytest-8.4.2.pyc
-test_smoke.cpython-310-pytest-8.4.2.pyc
-
+Since it’s too long, so please check the full execution logs at the bottom.
 
 ## 🤖 3. Use of GenAI (if applicable)
 - **What I Asked It To Do**: How to install and run pytest on Windows,How to debug with breakpoints in VS Code and inspect variables, Why pytest showed 3 tests,
 OOP basics.
   - ## GenAI Usage Log
-- 2025-09-14: Asked how to install pytest and run it properly (python -m pytest -q).
-- 2025-09-14: Asked why pytest showed 3 tests.
-- 2025-09-14: Asked how to use pytest --collect-only to see discovered tests.
-- 2025-09-14: Asked about OOP basics.
+- 2025-09-21: The exact commands for venv/Conda/Poetry on Windows and how to troubleshoot errors.
+- 2025-09-21: The reasons an environment.yml can differ. 
+- 2025-09-21: How to resolve prefix conflicts.
 
 - **What I Got and Did With It**:
-- Installed pytest successfully and executed tests from the project root.
-- Discovered the reason for 3 tests passing: presence of test_smoke.py.
-- Used pytest --collect-only to confirm test discovery.
-- Reviewed OOP fundamentals to understand the class-based structure of the project.
-
+- Applied PowerShell-specific activation steps and bypassed execution-policy restrictions.
+- Cleaned up environment.yml (removed prefix) and safely cloned the environment under a new name.
+- Noted that mixing Conda with venv/Poetry in the same shell causes conflicts—always run deactivate / conda deactivate before switching.
 - **Risks or Misuses You Noticed**: There were no issues.
 
 ## 💬 4. Reflection
-- **How did this week’s work support reproducibility or deployment?** :  Writing unit tests with pytest ensured reproducibility by making it easy to rerun the same checks after any code changes. Debugging with breakpoints improved code reliability.
-- **What was most confusing or interesting?** : I found it most interesting to use breakpoints in VS Code to directly inspect values and confirm the bug in the mean() function.
-- **If someone else looked at your repo, what would help them use this part of the project?** : I believe others would find it easier to use my repo if I added clear instructions on how to install pytest, run the tests.
-If someone else looked at your repo, what would help them use this part of the project? : I believe others would find it easier to use my repo if I added clear instructions on how to install pytest and run the tests.
-
- 
+- **How did this week’s work support reproducibility or deployment?**
+- Capturing environments with requirements.txt, environment.yml, and poetry.lock allows byte-for-byte reproducibility across machines.
+- Docker locks in OS-level dependencies; once the image is built, results are consistent anywhere Docker runs.
+- **What was most confusing or interesting?**
+- Windows-specific pitfalls (PowerShell execution policy, source vs Activate.ps1).
+- Conda’s prefix behavior and why --from-history can differ so much from a full export.
+- Poetry defaulting to MS Store Python; explicitly pinning Python 3.11 and using in-project venv made behavior predictable.
+- **If someone else looked at your repo, what would help them use this part of the project?**
+- Pick one path (venv or Conda or Poetry) and follow the exact commands for Windows PowerShell.
+- Troubleshooting snippets for the common Windows errors listed above.
 
 <details>
 <summary>View Execution Logs</summary>
