@@ -26,6 +26,8 @@ Summary of the answer: pytest collects all test_*.py files and their test_ funct
 - Checked that --all saves all three categories (Mystery, Poetry, Science).
 - Ensured that logs contain timestamps, file paths, and byte sizes of the downloads.
 - **Link to Evidence**
+<details>
+<summary>View Execution Logs</summary>
 (.venv) (base) PS C:\Users\수영\Desktop\Tilburg Univ\study\RM\portfolio-25-26-Sy-Lyy> python .\src\fetch_data.py --url "http://books.toscrape.com/catalogue/category/books/mystery_3/index.html" --output ".\data\raw\mystery-test.html"
 Saved mystery HTML to data/raw/mystery-20250928-160649.html
 Saved poetry HTML to data/raw/poetry-20250928-160649.html
@@ -142,7 +144,7 @@ Saved science HTML to data/raw/science-20250928-160710.html
 2025-09-28 16:07:12,038 | INFO | Saved → C:\Users\수영\Desktop\Tilburg Univ\study\RM\portfolio-25-26-Sy-Lyy\data\raw\poetry-20250928-160711.html (48207 bytes)
 2025-09-28 16:07:12,040 | INFO | Start download: http://books.toscrape.com/catalogue/category/books/science_22/index.html
 2025-09-28 16:07:12,479 | INFO | Saved → C:\Users\수영\Desktop\Tilburg Univ\study\RM\portfolio-25-26-Sy-Lyy\data\raw\science-20250928-160711.html (42547 bytes)
-
+</details>
 
 ## 🤖 3. Use of GenAI (if applicable)
 - **What I Asked It To Do**:
