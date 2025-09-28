@@ -11,3 +11,17 @@ run:
 
 docker:
 	docker build -t my_project .
+
+get-data:
+	python fetch_data.py
+
+scrape:
+	python scrape_books.py
+
+clean:
+	python clean_books.py   # optional cleaning step
+
+train:
+	python classify.py
+
+all: get-data scrape train
