@@ -3,8 +3,7 @@
 - **Summary**:  I implemented a full pipeline covering data collection, scraping, cleaning, and classification.
 - Extended the fetching script with CLI arguments (--url, --output, --categories, --all, --outdir) and logging to track fetch events. Verified multiple categories and full downloads.
 - Parsed saved HTML files into structured CSV (books.csv) using BeautifulSoup in scrape_books.py and built a classification pipeline (classify.py)
-
-Added an optional cleaning step (clean_books.py)
+- Added an optional cleaning step (clean_books.py)
 - **Key Tools Used**: Python, argparse, logging, BeautifulSoup, pandas, scikit-learn Makefile
 - **Artifact Location**:
   - https://github.com/tcsai/portfolio-25-26-Sy-Lyy.git
