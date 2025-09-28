@@ -13,4 +13,4 @@ docker:
 	docker build -t my_project .
 
 get-data:
-	python src/fetch_data.py
+	python fetch_data.py
