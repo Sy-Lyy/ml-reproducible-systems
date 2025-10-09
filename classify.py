@@ -44,3 +44,14 @@ print(classification_report(y_test, y_pred))
 os.makedirs("logs", exist_ok=True)
 pd.DataFrame([{"accuracy": acc}]).to_csv("logs/metrics.csv", index=False)
 print("Metrics saved to logs/metrics.csv")
+
+import joblib
+import os
+
+# --- 7. save model + vectorizer ---
+os.makedirs("models", exist_ok=True)
+
+joblib.dump(clf, "models/model.pkl")
+joblib.dump(vec, "models/vectorizer.pkl")
+
+print("Model and vectorizer saved in 'models/'")
