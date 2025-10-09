@@ -1,15 +1,17 @@
-# Slim Python image
-FROM python:3.11-slim
+# Base system: slim Linux with Python 3.11 installed
+FROM python:3.11.13-slim
 
+# Create a working directory inside the container
 WORKDIR /app
 
-# Install deps early to cache
+# Copy dependency list first (so Docker caches installs)
 COPY requirements.txt .
+
+# Install dependencies
 RUN pip install -r requirements.txt
 
-# Copy project
-COPY src/ src/
-COPY pyproject.toml .
-RUN pip install -e .
+# Copy the rest of the project
+COPY . .
 
-ENTRYPOINT ["python", "-m", "src"]
+# Command to run when container starts
+CMD ["python", "train.py"]
