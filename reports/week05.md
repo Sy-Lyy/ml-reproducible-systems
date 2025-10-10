@@ -1,4 +1,4 @@
-# 📅 Week 3: [Testing, debugging, and OOP]
+# 📅 Week 5: [Testing, debugging, and OOP]
 ## 🛠️ 1. What I Built
 - **Summary**:  I implemented a full pipeline covering data collection, scraping, cleaning, and classification.
 - Extended the fetching script with CLI arguments (--url, --output, --categories, --all, --outdir) and logging to track fetch events. Verified multiple categories and full downloads.
