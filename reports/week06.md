@@ -1,4 +1,4 @@
-# 📅 Week 4: [Web deployment & Model serving]
+<img width="1902" height="707" alt="image" src="https://github.com/user-attachments/assets/a9552fc1-30b0-422d-88a8-e36257920e79" /># 📅 Week 4: [Web deployment & Model serving]
 ## 🛠️ 1. What I Built
 - **Summary**: This week I deployed a trained text-classification model as a web service using FastAPI and containerized it with Docker for reproducibility. I also built a Streamlit front-end that communicates with the API. The workflow connected three layers — FastAPI as the backend, Streamlit as the user interface, and the trained scikit-learn model stored in models/. I first saved the classifier and vectorizer with joblib, then created src/api.py to expose /predict and /health endpoints. After confirming the API locally via PowerShell requests, I built a Docker image (myapi:env), ran it successfully, and finally pushed the image to Docker Hub as sooyyy/myapi:latest. The week concluded with running src/app.py via Streamlit to display live predictions through the FastAPI backend.
 - **Key Tools Used**: FastAPI, Uvicorn, Docker Desktop (WSL2), Streamlit, PowerShell, requests, joblib, scikit-learn, VS Code, GitHub Actions
@@ -6,16 +6,16 @@
   - https://github.com/tcsai/portfolio-25-26-Sy-Lyy
   - https://hub.docker.com/repository/docker/sooyyy/myapi/general
 **How to Run** (if applicable)
-- (1) Start FastAPI server
+- (1) Start FastAPI server : 
 uvicorn src.api:app --reload --port 8000
-- (2) Test endpoints (PowerShell)
+- (2) Test endpoints (PowerShell) : 
 Invoke-RestMethod "http://localhost:8000/health"
 $body = @{ text = "the grand design" } | ConvertTo-Json
 Invoke-RestMethod -Method Post -Uri "http://localhost:8000/predict" -ContentType "application/json" -Body $body
-- (3) Build & run Docker container
+- (3) Build & run Docker container :
 docker build -t myapi:env .
 docker run --rm -it -p 8000:8000 --env-file .env myapi:env
-- (4) Run Streamlit front-end
+- (4) Run Streamlit front-end : 
 streamlit run src/app.py
 
 
@@ -27,8 +27,8 @@ streamlit run src/app.py
 - Tagged and pushed Docker image to Docker Hub after authenticating with docker login.
 - Learned to run Streamlit only via streamlit run instead of python app.py to avoid “missing ScriptRunContext” warnings.
 - **Link to Evidence**
-- ![image.png](attachment:46105406-0e00-4373-b9fd-6cd905d0e776:image.png)
-- ![image.png](attachment:244bf8f6-2283-4424-9709-ff4195c0d7f4:image.png)
+- <img width="1902" height="707" alt="image" src="https://github.com/user-attachments/assets/83ff6c14-d961-4735-91a6-fd100abbcf76" />
+- <img width="935" height="630" alt="image" src="https://github.com/user-attachments/assets/2ddfd9ef-d9f0-4920-90a5-3cca1d6ac4d0" />
 - https://github.com/tcsai/portfolio-25-26-Sy-Lyy
 - https://hub.docker.com/repository/docker/sooyyy/myapi/general
 
