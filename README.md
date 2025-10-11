@@ -137,7 +137,23 @@ docker run -p 8000:8000 myapi
 | **Next Step** | **Description** |
 |----------------|-----------------|
 | **Cross-OS Documentation** | Add Linux/macOS examples for broader reproducibility. |
-| **Docker Compose Setup** | Combine FastAPI + Streamlit se
+| **Docker Compose Setup** | Combine FastAPI + Streamlit sevices into unified deployment. |
+| **Testing Expansion** | Add more integration and functional tests. |
 
+# 🧠 Personal Learning (Understand + Reflect)
+
+At the start, I thought reproducibility was just about saving working code. Over time, I learned it’s about making every success and failure re-playable.
+
+Keeping full logs and debugging traces in weekly reports taught me that reproducibility means enabling others to recover from the same obstacles.
+
+Week 3 shifted my mindset — tests became learning tools, not chores. Weeks 4–6 deepened my understanding of environment control: reproducibility isn’t “same setup,” but “same results anywhere.”
+
+I also realized transparency — even about mistakes — builds credibility and helps others trust your workflow.
+
+# 🧩 Concluding Reflection
+
+This repository’s strength lies in its balance between clarity and traceability. It offers a clean “follow-me” workflow for beginners, while preserving detailed troubleshooting paths for anyone who encounters errors.
+
+**Reproducibility isn’t perfection — it’s documentation of imperfection.** Others can only reproduce your success if they can also reproduce your failures.
 
 
