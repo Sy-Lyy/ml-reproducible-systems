@@ -120,7 +120,7 @@ docker run -p 8000:8000 myapi
 
 ## 6️⃣ GenAI — Used and Managed Transparently
 
-**Purpose:** Used ChatGPT as a debugging assistant, *not* for code writing.
+**Purpose:** Used ChatGPT as a debugging assistant.
 
 **Examples:**
 - Converting `curl` → `Invoke-RestMethod` (Windows PowerShell)  
