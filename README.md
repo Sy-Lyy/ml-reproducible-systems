@@ -11,13 +11,13 @@ The project demonstrates how each reproducibility layer — from **Git tracking 
 
 | **Component** | **Description** | **Link / File** |
 |----------------|-----------------|-----------------|
-| **Git Versioning** | Branching, commit recovery (`reflog`, `reset`, `cherry-pick`) for traceable workflow. | `[reports/week01.md](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/reports/week01.md)` |
-| **Automation (Makefile)** | Standardized commands (`prep`, `run`, `test`) to automate pipeline steps. | `[Makefile](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/Makefile)` |
-| **Testing (pytest)** | Unit testing for `DataProcessor` class to verify deterministic logic. | `[/tests/test_processor.py](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/src/processor.py)` |
-| **Environment Capture** | Portable environments via `requirements.txt`, `Dockerfile`, and Conda YAML. | `[requirements.txt](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/requirements.txt)`, `[Dockerfile](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/Dockerfile)` |
-| **Data Workflow** | Web scraping (BeautifulSoup) → cleaning → classification (pandas). | `[/src/scrape_books.py](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/scrape_books.py)` |
-| **Deployment** | Model served through **FastAPI backend** and **Streamlit frontend**. | `[/src/api.py](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/src/api.py)`, `[/src/app.py](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/src/app.py)` |
-| **Reports** | Full weekly documentation of code, debugging, and learning process. | `[/reports/](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/tree/main/reports)` |
+| **Git Versioning** | Branching, commit recovery (`reflog`, `reset`, `cherry-pick`) for traceable workflow. | [reports/week01.md](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/reports/week01.md) |
+| **Automation (Makefile)** | Standardized commands (`prep`, `run`, `test`) to automate pipeline steps. | [Makefile](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/Makefile) |
+| **Testing (pytest)** | Unit testing for `DataProcessor` class to verify deterministic logic. | [/tests/test_processor.py](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/src/processor.py) |
+| **Environment Capture** | Portable environments via `requirements.txt`, `Dockerfile`, and Conda YAML. | [requirements.txt](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/requirements.txt), [Dockerfile](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/Dockerfile) |
+| **Data Workflow** | Web scraping (BeautifulSoup) → cleaning → classification (pandas). | [/src/scrape_books.py](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/scrape_books.py) |
+| **Deployment** | Model served through **FastAPI backend** and **Streamlit frontend**. | [/src/api.py](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/src/api.py), [/src/app.py](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/src/app.py) |
+| **Reports** | Full weekly documentation of code, debugging, and learning process. | [/reports/](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/tree/main/reports) |
 
 
 
@@ -68,13 +68,13 @@ docker run -p 8000:8000 myapi
 
 | **Tool / Concept** | **Role in Reproducibility** | **Evidence** |
 |---------------------|------------------------------|---------------|
-| **Git** | Enables traceability and rollback (recover deleted commits). | `[week1.md](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/reports/week01.md)` |
-| **Makefile** | Ensures consistent, automated execution across systems. | `[Makefile](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/Makefile)` |
-| **pytest** | Detects logic errors early; makes results verifiable. | `[week3.md](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/reports/week03.md)` |
-| **Docker** | Guarantees environment consistency; isolates dependencies. | `[Dockerfile](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/Dockerfile)` |
-| **FastAPI + Streamlit** | Reproduces the same model behavior via a fixed API/UI interface. | `[/src/api.py](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/src/api.py)` |
-| **Weekly Reports** | Contain step-by-step debugging logs for transparent reruns. | `[/reports/](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/tree/main/reports)` |
-| **Ruff / Linting** | Maintains coding style and prevents hidden syntax issues. | `[pyproject.toml](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/pyproject.toml)` |
+| **Git** | Enables traceability and rollback (recover deleted commits). | [week1.md](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/reports/week01.md) |
+| **Makefile** | Ensures consistent, automated execution across systems. | [Makefile](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/Makefile) |
+| **pytest** | Detects logic errors early; makes results verifiable. | [week3.md](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/reports/week03.md) |
+| **Docker** | Guarantees environment consistency; isolates dependencies. | [Dockerfile](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/Dockerfile) |
+| **FastAPI + Streamlit** | Reproduces the same model behavior via a fixed API/UI interface. | [/src/api.py](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/src/api.py) |
+| **Weekly Reports** | Contain step-by-step debugging logs for transparent reruns. | [/reports/](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/tree/main/reports) |
+| **Ruff / Linting** | Maintains coding style and prevents hidden syntax issues. | [pyproject.toml](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/pyproject.toml) |
 
 > **Together, these layers form a reproducibility stack** — from code versioning (**Git**) → automation (**Make**) → verification (**pytest**) → environment capture (**Docker**) → consistent delivery (**FastAPI / Streamlit**).
 
