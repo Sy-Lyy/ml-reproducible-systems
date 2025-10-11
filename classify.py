@@ -55,3 +55,35 @@ joblib.dump(clf, "models/model.pkl")
 joblib.dump(vec, "models/vectorizer.pkl")
 
 print("Model and vectorizer saved in 'models/'")
+
+# Exploration : Accuracy
+
+
+from sklearn.metrics import accuracy_score, f1_score
+from pathlib import Path
+import json, time, joblib
+
+
+y_pred = clf.predict(X_val)
+
+metrics = {
+    "task": "classification",
+    "accuracy": float(accuracy_score(y_val, y_pred)),
+    "f1_macro": float(f1_score(y_val, y_pred, average="macro")),
+    "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
+    "model_file": "model.pkl",
+    "vectorizer_file": "vectorizer.pkl",
+}
+
+MODELS_DIR = Path(__file__).resolve().parents[1] / "models" 
+MODELS_DIR.mkdir(exist_ok=True)
+
+
+joblib.dump(clf, MODELS_DIR / "model.pkl")
+joblib.dump(vec, MODELS_DIR / "vectorizer.pkl")
+
+
+with open(MODELS_DIR / "metrics.json", "w", encoding="utf-8") as f:
+    json.dump(metrics, f, ensure_ascii=False, indent=2)
+
+print("Saved model, vectorizer, and metrics.json in /models")
