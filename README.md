@@ -113,7 +113,7 @@ docker run -p 8000:8000 myapi
 
 | **Feedback from Peer** | **My Response** |
 |--------------------------|-----------------|
-| Add `requirements.txt` and specify Python version | Added `requirements.txt` after Week 5 (`requests`, `beautifulsoup4`, `pandas`, `scikit-learn`) and noted **Python 3.11 (recommended)** at the top of README for environment clarity. |
+| Add `requirements.txt` and specify Python version | Added `requirements.txt` after Week 5 (`pandas`, `scikit-learn`) and noted **Python 3.11 (recommended)** at the top of README for environment clarity. |
 | Add docstrings and type hints for clarity | Added short docstrings and type hints to key functions (`DataProcessor.mean`, `scrape_books.parse_books_html`, `fetch_data.build_parser`) so argument types and outputs are immediately visible. |
 
 ---
