@@ -87,7 +87,7 @@ docker run -p 8000:8000 myapi
 - **Fix:** Removed redundant test files, used debugger to verify variable states.  
 - **Insight:** Testing isn’t only validation — it reveals hidden data logic flaws.  
 - **Extend:** Integrate end-to-end functional tests for input→output verification.  
-🔗 *See Week 3 report*
+🔗 *See Week 3 report* https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/reports/week03.md
 
 ---
 
@@ -96,7 +96,7 @@ docker run -p 8000:8000 myapi
 - **Fix:** Replaced `curl` with `Invoke-RestMethod`, verified proper JSON output.  
 - **Insight:** Even identical commands behave differently across OS; documentation of exact syntax is essential.  
 - **Extend:** Keep platform-specific notes in README for first-time users.  
-🔗 *See Week 6 report*
+🔗 *See Week 6 report* https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/reports/week06.md
 
 ---
 
@@ -105,7 +105,7 @@ docker run -p 8000:8000 myapi
 - **Fix:** Restarted Docker Desktop after `wsl --shutdown`, logged every command.  
 - **Insight:** Reproducibility includes OS-level dependencies, not just code.  
 - **Extend:** Build OS-independent Compose setup for backend/frontend runtime.  
-🔗 *See Week 4 report*
+🔗 *See Week 4 report* https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/reports/week04.md
 
 ---
 
