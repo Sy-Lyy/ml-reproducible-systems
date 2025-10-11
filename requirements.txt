@@ -52,9 +52,10 @@ tzdata==2025.2
 urllib3==2.5.0
 uvicorn==0.37.0
 watchdog==6.0.0
-
+pytest==8.3.3
 pytest
-+ pytest==8.3.3
+
+
 
 
 
