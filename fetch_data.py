@@ -1,3 +1,16 @@
+"""Download BooksToScrape category pages with logging and simple CLI.
+
+Examples (PowerShell):
+    python src/fetch_data.py --all --outdir ".\\data\\raw"
+    python src/fetch_data.py --categories mystery poetry --outdir ".\\data\\raw"
+    python src/fetch_data.py --url "http://..." --output ".\\data\\raw\\download.html"
+
+Notes:
+- Creates timestamped logs under `./logs/fetch-YYYYMMDD.log`
+- Original functionality remains identical; only documentation was added.
+"""
+
+
 import argparse
 import logging
 import sys
@@ -12,6 +25,10 @@ CATEGORIES = {
 }
 
 def setup_logging():
+    """Configure console and file logging under `./logs`.
+
+    Creates a daily log file `fetch-YYYYMMDD.log` and logs INFO-level events.
+    """
     logdir = pathlib.Path("logs")
     logdir.mkdir(parents=True, exist_ok=True)
     logfile = logdir / f"fetch-{time.strftime('%Y%m%d')}.log"
@@ -24,6 +41,12 @@ def setup_logging():
     logging.info("Logger initialized → %s", logfile.resolve())
 
 def download(url: str, outpath: pathlib.Path):
+    """Download a single webpage and save it to the given path.
+
+    Args:
+        url (str): Target URL.
+        outpath (pathlib.Path): Destination file path.
+    """
     outpath.parent.mkdir(parents=True, exist_ok=True)
     logging.info("Start download: %s", url)
     resp = requests.get(url, timeout=30)
@@ -33,6 +56,16 @@ def download(url: str, outpath: pathlib.Path):
     print(f"Saved HTML to {outpath}")
 
 def parse_args():
+    """Parse CLI arguments for fetching category pages.
+
+    Returns:
+        argparse.Namespace:
+            --url (str): Full URL to fetch
+            --output (str): Output filename
+            --categories (list[str]): Category names (mystery, poetry, science)
+            --all (flag): Fetch all predefined categories
+            --outdir (str): Output directory (default: data/raw)
+    """
     p = argparse.ArgumentParser(description="Fetch webpages with logging and CLI options.")
     p.add_argument("--url", help="Full URL to fetch")
     p.add_argument("--output", help="Output filepath")
@@ -42,6 +75,11 @@ def parse_args():
     return p.parse_args()
 
 def main():
+    """Main entry point.
+
+    Initializes logging, parses CLI arguments, and downloads either a single URL
+    or one or more predefined categories into the output directory.
+    """
     setup_logging()
     args = parse_args()
     outdir = pathlib.Path(args.outdir)
