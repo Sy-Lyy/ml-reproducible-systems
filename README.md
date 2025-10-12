@@ -125,7 +125,8 @@ docker run -p 8000:8000 myapi
 **Examples:**
 - Converting `curl` → `Invoke-RestMethod` (Windows PowerShell)  
 - Interpreting pytest errors & Ruff configuration  
-- Explaining Docker build failures  
+- Explaining Docker build failures
+- Generating a README template(Week 7)
 
 **Risk Management:** Every suggestion was locally tested before inclusion.  
 **Transparency:** All GenAI interactions logged under `/reports/Use of GenAI` sections.
