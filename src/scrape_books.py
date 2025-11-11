@@ -1,3 +1,16 @@
+"""Aggregate book titles from downloaded category HTML and save as CSV.
+
+This script:
+- Scans `data/raw/*.html`
+- Infers category label from filename prefix (e.g., mystery-*.html → label='mystery')
+- Extracts book titles from <a> tags with a `title` attribute
+- Saves the combined result into `data/processed/books.csv`
+
+Notes:
+- Behavior and logic remain unchanged.
+- This script executes immediately when run, without function calls.
+"""
+
 from bs4 import BeautifulSoup
 import pandas as pd, os, glob
 
@@ -26,10 +39,16 @@ print(f"Saved {len(df)} books into data/processed/books.csv")
 import argparse
 
 def parse_args():
+    """Parse optional CLI flags for local experiments.
+
+    Returns:
+        argparse.Namespace:
+            --genre {mystery, poetry, science}: optional genre filter
+            --pages (int): number of pages to fetch (default=1)
+    """
     p = argparse.ArgumentParser()
     p.add_argument("--genre", choices=["mystery", "poetry", "science"],
                    help="Which genre to fetch")
     p.add_argument("--pages", type=int, default=1,
                    help="How many pages to fetch")
     return p.parse_args()
-#

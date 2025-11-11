@@ -1,30 +1,160 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=20227413&assignment_repo_type=AssignmentRepo)
-# rs-rmd-portfolio-template
-Template for the portfolio assignment of the course RS: Reproducibility &amp; Model Deployment.
+# 🧩 Final Reflection — Reproducible Modeling Portfolio
 
-**‼️ NOTE**: you can delete the contents of this file. This is just to get you started!
+**Python version: 3.11.x (recommended) — tested with Python 3.11**
 
-### 🗂️ Quick tour of the **non-code files** in your starter repo
+This reflection summarizes six weeks of progressive work on building a **reproducible, testable, and deployable data science pipeline**.  
+The project demonstrates how each reproducibility layer — from **Git tracking to Dockerized deployment** — integrates into one cohesive workflow.
 
-Below we'll tell you what each file does, why you should care, and when we’ll meet it in class.
 
-| 🗄️ File / Folder                | 💡 What it is                                                        | 🙏 Why you’ll be glad it’s there                                                    | 🔎 When we’ll zoom in on it                                      |
-| ------------------------------ | -------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| **`README.md`**                | Your project’s front door; first place visitors land.                | Lets anyone (future-you included) clone the repo and run the code without guessing. | **Week 1** We draft the first version together.                 |
-| **`LICENSE`**                  | The permission slip for using and sharing your code.                 | Makes it crystal-clear what others can (and can’t) do with your work.               | **Week 1** Comes pre-filled; we explain why it matters.         |
-| **`CITATION.cff`**             | A machine-readable “cite me” card.                                   | Helps scholars give you credit; GitHub even shows a “Cite this repo” button.        | **Week 1** Tiny file, big academic karma.                       |
-| **`.gitignore`**               | The repo’s bouncer.                                                  | Keeps huge data files, secrets, and temp junk out of version control.               | **Week 1** You’ll tweak it when odd files slip through.         |
-| **`pyproject.toml`**           | Python’s modern shopping list for dependencies and packaging info.   | Guarantees teammates and CI install the **same** versions.                          | Intro **Week 1**, extended in **Week 2** when we add real libs. |
-| **`requirements.txt`**         | A lighter, classic dependency list—express checkout.                 | Quick install for people who don’t use `pyproject` yet.                             | **Week 2** We pin versions later for full reproducibility.      |
-| **`environment.yml`**          | A Conda recipe card (optional).                                      | Cross-platform fall-back if you prefer Conda to `venv`.                             | **Week 2** Optional exercise.                                   |
-| **`Makefile`**                 | Your repo’s*remote control (`make test`, `make run`).                | One-liners save you from remembering long commands.                                 | **Week 2** We add tasks as the project grows.                   |
-| **`Dockerfile`**               | A shipping container spec—bundles OS + code + deps.                  | “Works on my machine” now means “works everywhere.”                                 | **Week 4** Containerisation week.                               |
-| **`.github/workflows/ci.yml`** | The repo’s robot tester (Continuous Integration).                    | Runs your tests on every push so broken code never sneaks in.                       | **Week 3** Right after you write real tests.                    |
-| **`tests/`**                   | Your safety net; pytest files live here.                             | Catch bugs early; prove your pipeline still works months later.                     | **Week 3** We’ll turn the smoke test into real coverage.        |
-| **`data/` (+ a small README)** | The parking lot for raw or processed data (mostly not in Git).       | Documents exactly where to fetch data without bloating the repo.                    | **Week 5** Data-pipeline week.                                  |
-| **`notebooks/`**               | Your scratchpad for quick experiments / EDA.                         | Keeps exploratory work separate from production code.                               | Mentioned **Week 3** when we talk tidy notebooks.               |
-| **`deployment/`**              | The showroom; Streamlit or FastAPI app plus configs.                 | Turns your model into something people can click on.                                | **Week 6** Deployment week.                                     |
-| **`reports/`**                 | Your weekly journal.                                                 | Captures what you tried, learned, and how (or if) you used GenAI.                   | **Every week**—first entry in Week 1.                           |
 
-Use this table whenever you wonder, “Wait, what’s that file for again, and why did you make me keep it?”
-It’s all about making your work reproducible, shareable, and future-proof; exactly the skills this course is designed to build.
+## 1️⃣ Snapshot — What’s in this repo
+
+| **Component** | **Description** | **Link / File** |
+|----------------|-----------------|-----------------|
+| **Git Versioning** | Branching, commit recovery (`reflog`, `reset`, `cherry-pick`) for traceable workflow. | [reports/week01.md](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/reports/week01.md) |
+| **Automation (Makefile)** | Standardized commands (`prep`, `run`, `test`) to automate pipeline steps. | [Makefile](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/Makefile) |
+| **Testing (pytest)** | Unit testing for `DataProcessor` class to verify deterministic logic. | [/tests/test_processor.py](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/src/processor.py) |
+| **Environment Capture** | Portable environments via `requirements.txt`, `Dockerfile`, and Conda YAML. | [requirements.txt](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/requirements.txt), [Dockerfile](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/Dockerfile) |
+| **Data Workflow** | Web scraping (BeautifulSoup) → cleaning → classification (pandas). | [/src/scrape_books.py](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/scrape_books.py) |
+| **Deployment** | Model served through **FastAPI backend** and **Streamlit frontend**. | [/src/api.py](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/src/api.py), [/src/app.py](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/src/app.py) |
+| **Reports** | Full weekly documentation of code, debugging, and learning process. | [/reports/](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/tree/main/reports) |
+
+
+
+## 2️⃣ How to try it (demo commands)
+
+### 🧰 Local environment (Windows PowerShell)
+
+```powershell
+# 1️⃣ Create and activate virtual environment
+python -m venv .venv
+.venv\Scripts\activate.ps1
+
+# 2️⃣ Install dependencies and freeze environment
+pip install requests beautifulsoup4 pandas scikit-learn
+pip freeze > requirements.txt
+
+# 3️⃣ Run data pipeline
+make get-data
+python src/fetch_data.py --all --outdir ".\data\raw"
+make all
+# → Saved mystery / poetry / science HTML …
+# → Saved 1361 books into data/processed/books.csv
+
+# 4️⃣ Start FastAPI server
+uvicorn src.api:app --reload --port 8000
+
+# 5️⃣ Test API endpoints (PowerShell syntax)
+Invoke-RestMethod "http://localhost:8000/health"
+$body = @{ text = "the grand design" } | ConvertTo-Json
+Invoke-RestMethod -Method Post -Uri "http://localhost:8000/predict" -ContentType "application/json" -Body $body
+
+✅ Expected output
+GET /health → {"status": "RMD-OK"}
+POST /predict → "science"
+
+# 6️⃣ Run Streamlit front-end
+streamlit run src/app.py
+# → Streamlit app on http://localhost:8501
+
+# 7️⃣ Build & run Docker container
+docker build -t myapi .
+docker run -p 8000:8000 myapi
+# → Running experiment... Numpy version: 2.3.3
+```
+---
+
+## 3️⃣ Why these pieces matter (reproducibility in general)
+
+| **Tool / Concept** | **Role in Reproducibility** | **Evidence** |
+|---------------------|------------------------------|---------------|
+| **Git** | Enables traceability and rollback (recover deleted commits). | [week1.md](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/reports/week01.md) |
+| **Makefile** | Ensures consistent, automated execution across systems. | [Makefile](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/Makefile) |
+| **pytest** | Detects logic errors early; makes results verifiable. | [week3.md](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/reports/week03.md) |
+| **Docker** | Guarantees environment consistency; isolates dependencies. | [Dockerfile](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/Dockerfile) |
+| **FastAPI + Streamlit** | Reproduces the same model behavior via a fixed API/UI interface. | [/src/api.py](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/src/api.py) |
+| **Weekly Reports** | Contain step-by-step debugging logs for transparent reruns. | [/reports/](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/tree/main/reports) |
+| **Ruff / Linting** | Maintains coding style and prevents hidden syntax issues. | [pyproject.toml](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/pyproject.toml) |
+
+> **Together, these layers form a reproducibility stack** — from code versioning (**Git**) → automation (**Make**) → verification (**pytest**) → environment capture (**Docker**) → consistent delivery (**FastAPI / Streamlit**).
+
+---
+
+## 4️⃣ Deep Dives (topics explored further)
+
+### 🧩 A. Pytest Test Discovery & Mean Calculation Bug
+- **Challenge:** Unexpected test discovery in `pytest --collect-only`; miscalculated mean values.  
+- **Fix:** Removed redundant test files, used debugger to verify variable states.  
+- **Insight:** Testing isn’t only validation — it reveals hidden data logic flaws.  
+- **Extend:** Integrate end-to-end functional tests for input→output verification.  
+🔗 *See Week 3 report* https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/reports/week03.md
+
+---
+
+### ⚙️ B. Windows PowerShell ↔ API Request Standardization
+- **Challenge:** FastAPI tests failed with `curl` due to PowerShell alias conflicts.  
+- **Fix:** Replaced `curl` with `Invoke-RestMethod`, verified proper JSON output.  
+- **Insight:** Even identical commands behave differently across OS; documentation of exact syntax is essential.  
+- **Extend:** Keep platform-specific notes in README for first-time users.  
+🔗 *See Week 6 report* https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/reports/week06.md
+
+---
+
+### 🐳 C. WSL2 & Docker Daemon Issue
+- **Challenge:** “Docker daemon not running” error when WSL2 backend stopped.  
+- **Fix:** Restarted Docker Desktop after `wsl --shutdown`, logged every command.  
+- **Insight:** Reproducibility includes OS-level dependencies, not just code.  
+- **Extend:** Build OS-independent Compose setup for backend/frontend runtime.  
+🔗 *See Week 4 report* https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/reports/week04.md
+
+---
+
+## 5️⃣ Peer Feedback → Changes
+
+| **Feedback from Peer** | **My Response** |
+|--------------------------|-----------------|
+| Add `requirements.txt` and specify Python version | Added `requirements.txt` after Week 5 (`pandas`, `scikit-learn`) and noted **Python 3.11 (recommended)** at the top of README for environment clarity. |
+| Add docstrings and type hints for clarity | Added short docstrings and type hints to key functions (`DataProcessor.mean`, `scrape_books.parse_books_html`, `fetch_data.build_parser`) so argument types and outputs are immediately visible. |
+
+---
+
+## 6️⃣ GenAI — Used and Managed Transparently
+
+**Purpose:** Used ChatGPT as a debugging assistant.
+
+**Examples:**
+- Converting `curl` → `Invoke-RestMethod` (Windows PowerShell)  
+- Interpreting pytest errors & Ruff configuration  
+- Explaining Docker build failures
+- Generating a README template(Week 7)
+
+**Risk Management:** Every suggestion was locally tested before inclusion.  
+**Transparency:** All GenAI interactions logged under `/reports/Use of GenAI` sections.
+
+---
+
+## 7️⃣ If this became a “real” project — What next?
+
+| **Next Step** | **Description** |
+|----------------|-----------------|
+| **Cross-OS Documentation** | Add Linux/macOS examples for broader reproducibility. |
+| **Docker Compose Setup** | Combine FastAPI + Streamlit sevices into unified deployment. |
+| **Testing Expansion** | Add more integration and functional tests. |
+
+# 🧠 Personal Learning (Understand + Reflect)
+
+At the start, I thought reproducibility was just about saving working code. Over time, I learned it’s about making every success and failure re-playable.
+
+Keeping full logs and debugging traces in weekly reports taught me that reproducibility means enabling others to recover from the same obstacles.
+
+Week 3 shifted my mindset — tests became learning tools, not chores. Weeks 4–6 deepened my understanding of environment control: reproducibility isn’t “same setup,” but “same results anywhere.”
+
+I also realized transparency — even about mistakes — builds credibility and helps others trust your workflow.
+
+# 🧩 Concluding Reflection
+
+This repository’s strength lies in its balance between clarity and traceability. It offers a clean “follow-me” workflow for beginners, while preserving detailed troubleshooting paths for anyone who encounters errors.
+
+**Reproducibility isn’t perfection — it’s documentation of imperfection.** Others can only reproduce your success if they can also reproduce your failures.
+
+

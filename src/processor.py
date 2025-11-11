@@ -10,8 +10,6 @@ if __name__ == "__main__":
     p = DataProcessor([1, 2, 3])
     print("loaded:", p.data)
 
-# processor.py
-from typing import List
 
 class DataProcessor:
     """Basic numeric data processing.
