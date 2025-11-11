@@ -1,7 +1,9 @@
 .PHONY: install test run docker get-data scrape clean train all run-api run-streamlit
 
 install:
-	python -m venv .venv && . .venv/Scripts/activate && pip install -r requirements.txt
+	python -m venv .venv
+	.venv\Scripts\activate
+	pip install -r requirements.txt
 
 test:
 	pytest -q
