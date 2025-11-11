@@ -1,27 +1,30 @@
-.PHONY: install test run docker
+.PHONY: install test run docker get-data scrape clean train all run-api run-streamlit
 
 install:
-	python -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt
+	python -m venv .venv && . .venv/Scripts/activate && pip install -r requirements.txt
 
 test:
 	pytest -q
 
-run:
-	python -m src
+run-api:
+	uvicorn src.api:app --reload --port 8000
+
+run-streamlit:
+	streamlit run src/app.py
 
 docker:
 	docker build -t my_project .
 
 get-data:
-	python fetch_data.py
+	python src/fetch_data.py
 
 scrape:
-	python scrape_books.py
+	python src/scrape_books.py
 
 clean:
-	python clean_books.py   # optional cleaning step
+	python src/clean_books.py
 
 train:
-	python classify.py
+	python src/classify.py
 
-all: get-data scrape train
+all: get-data scrape clean train
