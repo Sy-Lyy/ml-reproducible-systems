@@ -30,7 +30,7 @@
   - I simulated losing a commit, then verified how to find and restore it using reflog.
   - I confirmed that I could recover a lost commit by creating a new branch
 - **Risks or Misuses You Noticed**:
-  - There were no issues.
+  - While using ChatGPT to explore Git recovery commands, I realized that blindly following AI-generated instructions could accidentally modify or delete files if the command was executed in the wrong context.
 
 ## 💬 4. Reflection
 - **How did this week’s work support reproducibility or deployment?** : Using Git and VS Code together helped me see how version control tools support reproducibility by keeping track of every change, and verifying lost commit recovery with reflog increased my confidence that important progress can always be restored
