@@ -162,7 +162,7 @@ Saved science HTML to data/raw/science-20250928-160710.html
 - Successfully ran fetches with CLI arguments
 - Installed make via Scoop and updated Makefile
 
-- **Risks or Misuses You Noticed**: There were no issues.
+- **Risks or Misuses You Noticed**: I realized that relying on ChatGPT to generate Makefile rules or CLI automation can make the workflow harder to trace later. When AI suggests commands or logging structures without full context, it becomes difficult to explain why a certain flag or dependency was added. This can reduce transparency and reproducibility of the pipeline, especially when debugging or sharing the project with others.
 
 ## 💬 4. Reflection
 - **How did this week’s work support reproducibility or deployment?** :  By splitting tasks into scripts (fetch, scrape, clean, train) and orchestrating them with a Makefile, I ensured full reproducibility. Anyone can re-run the pipeline and obtain the same outputs.
