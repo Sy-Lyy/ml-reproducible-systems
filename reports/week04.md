@@ -62,8 +62,7 @@ Since it’s too long, so please check the full execution logs at the bottom.
 - Applied PowerShell-specific activation steps and bypassed execution-policy restrictions.
 - Cleaned up environment.yml (removed prefix) and safely cloned the environment under a new name.
 - Noted that mixing Conda with venv/Poetry in the same shell causes conflicts—always run deactivate / conda deactivate before switching.
-- **Risks or Misuses You Noticed**: There were no issues.
-
+- **Risks or Misuses You Noticed**: I realized that switching frequently between ChatGPT instructions for venv, Conda, and Poetry made it easy to confuse their purposes and scopes. Using multiple tools based on different AI suggestions without a clear mental model could fragment the workflow and make it harder to maintain consistent environments later. I learned that relying too heavily on AI step-by-step guidance can sometimes replace actual conceptual understanding of environment management.
 ## 💬 4. Reflection
 - **How did this week’s work support reproducibility or deployment?**
 - Capturing environments with requirements.txt, environment.yml, and poetry.lock allows byte-for-byte reproducibility across machines.
