@@ -49,7 +49,7 @@ streamlit run src/app.py
 - Converted Bash-style curl to PowerShell-friendly Invoke-RestMethod.
 - Restarted Docker Desktop and verified daemon health.
 - Successfully pushed image to Docker Hub and tested Streamlit frontend.
-- **Risks or Misuses You Noticed**: There were no issues.
+- **Risks or Misuses You Noticed**: While using ChatGPT to connect FastAPI, Docker, and Streamlit, I noticed that it was easy to follow the steps mechanically without fully understanding how each part interacted. The AI’s instructions were helpful, but because it handled several layers at once(backend setup, containerization, and UI integration). I sometimes lost sight of what was happening under the hood. This made me realize how important it is to slow down, test each module separately, and make sure I actually understand the connections before combining everything into one workflow.
 
 ## 💬 4. Reflection
 - **How did this week’s work support reproducibility or deployment?**
