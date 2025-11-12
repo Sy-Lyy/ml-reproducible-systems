@@ -134,7 +134,7 @@ OOP basics.
 - Used pytest --collect-only to confirm test discovery.
 - Reviewed OOP fundamentals to understand the class-based structure of the project.
 
-- **Risks or Misuses You Noticed**: There were no issues.
+- **Risks or Misuses You Noticed**: I realized that relying on ChatGPT’s pytest examples without matching them to my actual project structure could lead to misleading test results or skipped tests. AI-generated snippets might assume a different file layout or naming convention, which can cause pytest to collect unintended tests or ignore existing ones. I also learned that copying OOP examples directly without adjusting class dependencies could create inconsistencies in the project’s design or test coverage.
 
 ## 💬 4. Reflection
 - **How did this week’s work support reproducibility or deployment?** :  Writing unit tests with pytest ensured reproducibility by making it easy to rerun the same checks after any code changes. Debugging with breakpoints improved code reliability.
