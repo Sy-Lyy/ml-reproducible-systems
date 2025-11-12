@@ -23,44 +23,43 @@ The project demonstrates how each reproducibility layer — from **Git tracking 
 
 ## 2️⃣ How to try it (demo commands)
 
-### 🧰 Local environment (Windows PowerShell)
+## Overview
+This demo builds and serves a complete text classification system —
+from web scraping to model deployment — all reproducible via Docker and Makefile automation.
+
 
 ```powershell
-# 1️⃣ Create and activate virtual environment
-python -m venv .venv
-.venv\Scripts\activate.ps1
+# 1. Create and activate virtual environment
+.venv\Scripts\activate
 
-# 2️⃣ Install dependencies and freeze environment
-pip install requests beautifulsoup4 pandas scikit-learn
-pip freeze > requirements.txt
+# 2. Install dependencies
+pip install -r requirements.txt
 
-# 3️⃣ Run data pipeline
-make get-data
-python src/fetch_data.py --all --outdir ".\data\raw"
+# 3. Run full pipeline
 make all
-# → Saved mystery / poetry / science HTML …
-# → Saved 1361 books into data/processed/books.csv
 
-# 4️⃣ Start FastAPI server
+# 4. Start FastAPI server
 uvicorn src.api:app --reload --port 8000
+# IMPORTANT: Keep this terminal open while testing API requests
+# → Expected output: "Uvicorn running on http://127.0.0.1:8000"
 
-# 5️⃣ Test API endpoints (PowerShell syntax)
+# 5. Test endpoints (open a NEW PowerShell window)
 Invoke-RestMethod "http://localhost:8000/health"
+# Expected output: {"status": "RMD-OK"}
 $body = @{ text = "the grand design" } | ConvertTo-Json
 Invoke-RestMethod -Method Post -Uri "http://localhost:8000/predict" -ContentType "application/json" -Body $body
+# Expected output: "science"
 
-✅ Expected output
-GET /health → {"status": "RMD-OK"}
-POST /predict → "science"
-
-# 6️⃣ Run Streamlit front-end
+# 6. Run Streamlit UI
 streamlit run src/app.py
-# → Streamlit app on http://localhost:8501
+# → Open http://localhost:8501
+# → Enter text and click "Predict" to see classification result.
 
-# 7️⃣ Build & run Docker container
+# 7. Run via Docker for reproducibility demo (Open a new PowerShell window)
+# Make sure Docker Desktop is running before running these commands.
 docker build -t myapi .
 docker run -p 8000:8000 myapi
-# → Running experiment... Numpy version: 2.3.3
+# → Expected output: "Running experiment... Numpy version: 2.3.3"
 ```
 ---
 
