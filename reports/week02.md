@@ -32,8 +32,7 @@
   - Installed GitHub CLI with sudo apt install gh and successfully logged in using gh auth login with the browser device code method.
   - Verified that after authentication, git push origin main worked successfully.
 - **Risks or Misuses You Noticed**:
-  - There were no issues.
-
+  - I noticed that relying on ChatGPT for installation and authentication steps could unintentionally expose sensitive setup information. For example, sharing terminal outputs containing device codes or authentication URLs might compromise security if copied or logged elsewhere. I also realized that following AI instructions that differ from my existing Docker setup could cause version inconsistencies between local and container environments.
 ## 💬 4. Reflection
 - **How did this week’s work support reproducibility or deployment?** : By creating a prep_data.sh script with a Makefile, I automated data preparation so it can be repeated easily.
 - **What was most confusing or interesting?** : I was confused about the file save locations, which caused the data not to appear properly. I realized that errors often come not from complex code but from small mistakes like this, and I learned that I need to pay more attention to these basic details.
