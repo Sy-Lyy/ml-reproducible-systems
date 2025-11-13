@@ -1,0 +1,19 @@
+.PHONY: all install api app docker clean
+
+all: install api app docker
+
+install:
+	pip install -r requirements.txt
+
+api:
+	uvicorn src.api:app --reload --port 8000
+
+app:
+	streamlit run src/app.py
+
+docker:
+	docker build -t week6-deploy .
+	docker run -p 8501:8501 week6-deploy
+
+clean:
+	rm -rf __pycache__ logs/* models/* .pytest_cache
