@@ -32,5 +32,9 @@ run-api:
 run-streamlit:
 	streamlit run src/app.py
 
-# Full pipeline : Week 3 + Week 5 + Week 6
-all: install test get-data scrape clean train run-api run-streamlit
+docker:
+	docker build -t myapi .
+	docker run -p 8000:8000 myapi
+
+all: install test get-data scrape clean train
+
