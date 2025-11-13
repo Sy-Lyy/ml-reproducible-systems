@@ -24,38 +24,33 @@ The project demonstrates how each reproducibility layer — from **Git tracking 
 ## 2️⃣ How to try it (demo commands)
 
 ## Overview
-This demo builds and serves a complete text classification system(from web scraping to model deployment) all reproducible via Docker and Makefile automation.
+This demo builds and serves a complete text classification system, covering every step from web scraping, data cleaning, and model training to FastAPI deployment and Streamlit UI.
+The entire workflow is reproducible through Docker and Makefile automation.
 
 
 ```powershell
-# 1. Create and activate virtual environment
-# (If .venv doesn't exist yet, create it first: python -m venv .venv)
-.venv\Scripts\activate
-
-# 2. Install dependencies
-make install
-
-# 3. Run the complete data → model pipeline
+# 1. Run the Makefile
+# Install dependencies, Run pytest, Data collection, scraping, cleaning, train and classify
 make all
 
-# 4. Start FastAPI server
-uvicorn src.api:app --reload --port 8000
-# IMPORTANT: Keep this terminal open while testing API requests
+# 2. Start FastAPI server
+make run-api
 # → Expected output: "Uvicorn running on http://127.0.0.1:8000"
+# Keep this terminal open while testing endpoints.
 
-# 5. Test endpoints (open a NEW PowerShell window)
+# 3. Test endpoints (open a NEW PowerShell window)
 Invoke-RestMethod "http://localhost:8000/health"
 # Expected output: {"status": "RMD-OK"}
 $body = @{ text = "the grand design" } | ConvertTo-Json
 Invoke-RestMethod -Method Post -Uri "http://localhost:8000/predict" -ContentType "application/json" -Body $body
 # Expected output: "science"
 
-# 6. Run Streamlit UI
+# 4. Run Streamlit UI
 streamlit run src/app.py
 # → Open http://localhost:8501
 # → Enter text and click "Predict" to see classification result.
 
-# 7. Run via Docker for reproducibility demo (Open a new PowerShell window)
+# 5. Run via Docker for reproducibility demo (Open a new PowerShell window)
 # Make sure Docker Desktop is running before running these commands.
 docker build -t myapi .
 docker run -p 8000:8000 myapi
@@ -86,6 +81,8 @@ docker run -p 8000:8000 myapi
 ### Default Branch Fix (GitHub)
 - **Challenge:** My GitHub repository’s default branch was mistakenly set to `feedback` instead of `main`
 - **Fix:** After noticing that I didn’t have permission to change the default branch, I contacted the professor, who helped me resolve the issue.
+  
+---
 
 ### Pytest Test Discovery & Mean Calculation Bug
 - **Challenge:** Unexpected test discovery in `pytest --collect-only`; miscalculated mean values.  
