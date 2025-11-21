@@ -1,22 +1,21 @@
-# Project Snapshot
-Reproducible Modeling Project 
 
-# Project Snapshot — Repository Structure
+# Reproducible Modeling Project 
+
+## Repository Structure
 ```
-**reproducible-ml-project/**
 ├── .github/                  # GitHub Actions CI pipeline:
 │
 ├── models/                   # # Trained model and vectorizer artifacts
 │
 ├── notebooks/                # Placeholder notebooks
 │
-├── 📁 reports/
-│   ├── week01.md              # Git versioning + reflog recovery
-│   ├── week02.md              # Makefile automation
-│   ├── week03.md              # Pytest + debugging
-│   ├── week04.md              # Environments (venv/conda/poetry)
-│   ├── week05.md              # Pipeline (fetch → scrape → clean → train)
-│   └── week06.md              # API, Docker, Streamlit deployment
+├── 📁 reports/               # Weekly reports for each stage of the project
+│   ├── week01.md              
+│   ├── week02.md             
+│   ├── week03.md            
+│   ├── week04.md             
+│   ├── week05.md             
+│   └── week06.md              
 │
 ├── 📁 src/
 │   ├── __init__.py    
@@ -29,16 +28,12 @@ Reproducible Modeling Project
 │   └── scrape_books.py        # Parse & clean HTML → CSV
 │           
 │
-├── 📁 tests/
+├── 📁 tests/                 # Unit tests (DataProcessor) + smoke tests
 │   ├── README.md  
 │   ├── test_processor.py      # Unit tests for DataProcessor
-│   └── test_smoke.py  
-│ 
-├── 📁 data/
-│   ├── raw/                   # Downloaded HTML pages
-│   └── processed/             # Cleaned CSV files
+│   └── test_smoke.py         
 │
-├── 📁 week-experiments/
+├── 📁 week-experiments/      # Week-specific Makefile experiments (Week 3, 5, 6)
 │   ├── week3_makefile
 │   ├── week5_makefile
 │   └── week6_makefile
@@ -48,13 +43,13 @@ Reproducible Modeling Project
 ├── CITATION.cff
 ├── LICENSE
 ├── Makefile                   # Full reproducible automation (run, scrape, clean, train)
-├── README.md
+├── README.md                  # This file
 ├── environment.yml            # Optional Conda environment
 ├── poetry.lock
 ├── pyproject.toml
 ├── pytest.ini
 ├── requirements.txt           # Pinned dependencies
-└── train.pt                  # This file
+└── train.py                  
 ```
 
 
