@@ -2,6 +2,7 @@
 Reproducible Modeling Project 
 
 # Project Snapshot — Repository Structure
+```
 **reproducible-ml-project/**
 ├── .github/                  # GitHub Actions CI pipeline:
 │
@@ -54,6 +55,6 @@ Reproducible Modeling Project
 ├── pytest.ini
 ├── requirements.txt           # Pinned dependencies
 └── train.pt                  # This file
-
+```
 
 
