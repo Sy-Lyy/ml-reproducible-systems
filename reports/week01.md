@@ -2,7 +2,7 @@
 
 ## 🛠️ 1. What I Built
 - **Summary**: I practiced the core Git workflow in VS Code: editing files, staging, committing, and pushing changes to GitHub. I also pulled updates from GitHub to my local repo, linked a commit to an issue so it closed automatically, and created a new branch to make changes and open a pull request, which I then merged into main I also explored undo and recovery commands, such as git restore to revert files and git reflog to recover lost commits.
-- **Key Tools Used**: VS Code, Git hub
+- **Key Tools Used**: VS Code,Git hub
 - **Artifact Location**: [README.md] https://github.com/Sy-Lyy/MLOps-Practical-1/blob/main/README.md [Branch] 1. fun-fact : https://github.com/Sy-Lyy/MLOps-Practical-1/pull/2 2. rescue-branch : https://github.com/Sy-Lyy/MLOps-Practical-1/compare/rescue-branch?expand=1 [Issues] https://github.com/Sy-Lyy/MLOps-Practical-1/issues/1
 
 - **How to Run** (if applicable)
