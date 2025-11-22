@@ -5,6 +5,12 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, f1_score, classification_report
+import random
+import numpy as np
+
+ # Set deterministic global seeds for reproducible results
+random.seed(42)
+np.random.seed(42)
 
 # --- 1. Load data ---
 # Option A: from CSV
@@ -28,7 +34,7 @@ X_train_vec = vec.fit_transform(X_train)
 X_test_vec = vec.transform(X_test)
 
 # --- 4. Train model (Logistic Regression) ---
-clf = LogisticRegression(max_iter=1000)
+clf = LogisticRegression(max_iter=1000, random_state=42)
 clf.fit(X_train_vec, y_train)
 
 # --- 5. Evaluate model ---
