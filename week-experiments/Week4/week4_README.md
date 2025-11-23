@@ -1,6 +1,6 @@
-# Week 1 — Version Control Foundations
+# Week 4 — Environment Reproducibility
 
-This week established the foundation of reproducibility through Git.
-Working with commits, branches, merges, and reflog showed me that every change is recoverable and verifiable.
-A key learning moment was understanding how to push locally created branches to GitHub and how VS Code integrates with Git.
-I also realized that clear, descriptive commit messages are essential so that others can follow or reuse my repository without confusion.
+My focus shifted from code to environments.
+Capturing dependencies with requirements.txt, environment.yml, and poetry.lock provided byte-for-byte reproducibility.
+It was also where I experienced the fragility of environment setup — PowerShell execution policies, Conda prefix paths, and Poetry’s Python version mismatches.
+This taught me that reproducibility requires choosing one consistent toolchain and documenting it clearly so others can recreate the exact environment.
