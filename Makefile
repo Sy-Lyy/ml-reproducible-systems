@@ -2,8 +2,6 @@
 
 # 1. Install dependencies
 install:
-	python -m venv .venv
-	.venv\Scripts\activate
 	pip install -r requirements.txt
 
 # 2. Run pytest (Week 3)
