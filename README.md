@@ -192,4 +192,3 @@ docker run -p 8000:8000 myapi
  
 - Each weekly report contains detailed logs of commands, errors, and debugging steps, but the format is not fully standardized. Consolidating and reformatting these logs into a consistent, readable structure would make the project easier for others to reproduce.
 
-**
