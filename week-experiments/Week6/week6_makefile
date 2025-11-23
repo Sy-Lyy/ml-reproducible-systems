@@ -1,19 +1,15 @@
-.PHONY: all install api app docker clean
+.PHONY: install run-api run-streamlit docker
 
-all: install api app docker
+# Week 6 — FastAPI, Docker, Streamlit
 
 install:
-	pip install -r requirements.txt
+	python -m pip install -r requirements.txt
 
-api:
+run-api:
 	uvicorn src.api:app --reload --port 8000
 
-app:
+run-streamlit:
 	streamlit run src/app.py
 
 docker:
-	docker build -t week6-deploy .
-	docker run -p 8501:8501 week6-deploy
-
-clean:
-	rm -rf __pycache__ logs/* models/* .pytest_cache
+	docker build -t myapi .
