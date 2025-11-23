@@ -1,15 +1,9 @@
-.PHONY: all install test collect clean
+.PHONY: install test
 
-all: install test
+# Week 3 — Testing & Debugging
 
 install:
-	pip install pytest
+	python -m pip install -r requirements.txt
 
 test:
-	python -m pytest -q
-
-collect:
-	python -m pytest -q --collect-only
-
-clean:
-	rm -rf __pycache__ */__pycache__ .pytest_cache
+	pytest -q
