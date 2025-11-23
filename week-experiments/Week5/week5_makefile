@@ -1,18 +1,20 @@
-.PHONY: all install get-data process classify clean
+.PHONY: install get-data scrape clean train pipeline
 
-all: install get-data process classify
+# Week 5 — Data ingestion, scraping, cleaning, training
 
 install:
-	pip install -r requirements.txt
+	python -m pip install -r requirements.txt
 
 get-data:
-	python src/fetch_data.py --all --outdir "./data/raw"
+	python src/fetch_data.py
 
-process:
+scrape:
 	python src/scrape_books.py
 
-classify:
+clean:
+	python src/clean_books.py
+
+train:
 	python src/classify.py
 
-clean:
-	rm -rf data/raw/* data/processed/* logs/* __pycache__ .pytest_cache
+pipeline: get-data scrape clean train
