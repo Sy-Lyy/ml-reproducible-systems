@@ -66,7 +66,6 @@ Built a DataProcessor class, added pytest tests, debugged failures, and validate
 
 Configured venv, Conda, and Poetry environments with their respective manifests, and built and deployed a Docker image. [*🔗View details in Week4 Report*](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/blob/main/reports/week04.md)
 - [Week4 References](https://github.com/tcsai/portfolio-25-26-Sy-Lyy/tree/main/week-experiments/Week4)
-- 
 
 **Week 5. Building the Scraping & Classification Pipeline** 
 
