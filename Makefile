@@ -25,7 +25,7 @@ train:
 # 4. Run API server and Streamlit app (Week 6)
 
 run-api:
-	python uvicorn src.api:app --reload --port 8000
+	.venv\Scripts\python -m uvicorn src.api:app --reload --port 8000
 
 run-streamlit:
 	streamlit run src/app.py
