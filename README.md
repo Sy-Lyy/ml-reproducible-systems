@@ -114,7 +114,7 @@ Invoke-RestMethod -Method Post -Uri "http://localhost:8000/predict" -ContentType
 ### 4. Run Streamlit UI
 
 ```powershell
-streamlit run src/app.py
+make run-streamlit
 # → Open http://localhost:8501
 # → Enter text and click "Predict" to see classification result.
 ```
