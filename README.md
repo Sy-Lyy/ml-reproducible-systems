@@ -1,7 +1,3 @@
-# Project Portfolio
-
-This portfolio compiles all weekly work from RS: Reproducibility & Model Deployment, showing how each project applies a different component of a reproducible ML workflow. The weekly projects and the overall reflection are summarized here.
-
 ## Repository Structure
 ```
 portfolio-25-26-Sy-Lyy
